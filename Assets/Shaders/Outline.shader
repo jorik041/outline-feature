@@ -26,8 +26,8 @@
             half2 uv            : TEXCOORD0;
         };
 
-        TEXTURE2D_X(_OutlinePrepassTexture);
-        SAMPLER(sampler_OutlinePrepassTexture);
+        TEXTURE2D_X(_OutlineRenderTexture);
+        SAMPLER(sampler_OutlineRenderTexture);
 
         TEXTURE2D_X(_OutlineBluredTexture);
         SAMPLER(sampler_OutlineBluredTexture);
@@ -48,7 +48,7 @@
         half4 Fragment(Varyings input) : SV_Target
         {
             float2 uv = UnityStereoTransformScreenSpaceTex(input.uv);
-            half4 prepassColor = SAMPLE_TEXTURE2D_X(_OutlinePrepassTexture, sampler_OutlinePrepassTexture, uv);
+            half4 prepassColor = SAMPLE_TEXTURE2D_X(_OutlineRenderTexture, sampler_OutlineRenderTexture, uv);
             half4 bluredColor = SAMPLE_TEXTURE2D_X(_OutlineBluredTexture, sampler_OutlineBluredTexture,uv);
             half4 difColor = max( 0, bluredColor - prepassColor);
             half4 color = difColor* _Color * _Intensity;

@@ -49,9 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _renderPassEvent: 450
   _outlineMaterial: {fileID: 2100000, guid: 47a7e186cd7ef4348b39717c05ed3cbc, type: 2}
-  _renderTextureName: _OutlinePrepassTexture
+  _renderTextureName: _OutlineRenderTexture
   _bluredTextureName: _OutlineBluredTexture
   _renderSettings:
+    UseDepth: 0
     OverrideMaterial: {fileID: 2100000, guid: da798bab47538cf44b13ebdade82295b, type: 2}
     OverrideMaterialPassIndex: 0
     LayerMask:
